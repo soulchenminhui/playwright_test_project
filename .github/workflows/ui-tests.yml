@@ -64,4 +64,37 @@ jobs:
           name: allure-report
           path: allure-report
           retention-days: 30
+  # 在现有 ui-tests job 的后面，添加这个新的 job
+  deploy-report:
+    # 设置运行环境
+    runs-on: ubuntu-latest
+    # 关键：此任务在 ui-tests 任务完成后运行（无论成功或失败，都要部署报告）
+    needs: [ui-tests]
+    if: always()
+    # 设定权限，以便将内容推送到 gh-pages 分支
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Allure HTML report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: ./allure-report # 下载报告到当前目录
+
+      - name: Deploy to GitHub Pages
+        # 使用社区广泛认可的、专门用于此目的的 action
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # 个人访问令牌，拥有仓库写入权限（GITHUB_TOKEN 是 GitHub 自动提供的）
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 要发布的目录，即上一步下载的报告目录
+          publish_dir: ./allure-report
+          # 发布到的目标分支
+          publish_branch: gh-pages
+          # 保持提交历史的干净，每次强制推送以覆盖旧内容
+          force_orphan: true
 
