@@ -1,0 +1,5 @@
+Locator expected to be visible
+Actual value: <element(s) not found> 
+Call log:
+LocatorAssertions.to_be_visible with timeout 5000ms
+  - waiting for locator("div.item-txt").filter(has_text="热门歌手")

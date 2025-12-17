@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Wed Dec 17 08:19:47 UTC 2025","Wed Dec 17 08:20:33 UTC 2025","45439","tests","test_search_function","TestSearchFunction","","","test_search_song_and_play[chromium]","测试搜索场景：搜索歌手、歌曲"
+"passed","Wed Dec 17 08:18:38 UTC 2025","Wed Dec 17 08:18:59 UTC 2025","21726","tests","test_agreement","TestAgreement","","","test_agreement[chromium]","测试场景：agreement"
+"broken","Wed Dec 17 08:19:00 UTC 2025","Wed Dec 17 08:19:47 UTC 2025","47311","tests","test_playlist_module","TestPlaylistModule","","","test_playlist_operations[chromium]","测试歌单操作流程"
+"failed","Wed Dec 17 08:20:33 UTC 2025","Wed Dec 17 08:20:56 UTC 2025","23202","tests","test_singermodule","TestSingermodule","","","test_singermodule[chromium]","测试场景：singermodule"

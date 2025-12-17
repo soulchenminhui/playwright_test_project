@@ -1,0 +1,40 @@
+self = <test_singermodule.TestSingermodule object at 0x7fa90f909400>
+singermodule_page = <pages.singermodule_page.SingermodulePage object at 0x7fa90f95f290>
+step = <function step.<locals>._step at 0x7fa90f676020>
+
+    def test_singermodule(self, singermodule_page: SingermodulePage, step) -> None:
+        """测试场景：singermodule"""
+        with step("打开页面"):
+            singermodule_page.navigate()
+        with step("点击已阅读且同意"):
+            singermodule_page.step_2()
+        with step("执行操作"):
+            singermodule_page.step_3()
+        with step("点击大陆女歌手"):
+            singermodule_page.step_4()
+        with step("点击中国组合"):
+            singermodule_page.step_5()
+        with step("点击大陆男歌手"):
+            singermodule_page.step_6()
+        with step("执行操作"):
+            singermodule_page.step_7()
+        with step("执行操作"):
+            singermodule_page.step_8()
+        with step("点击热门歌手"):
+>           singermodule_page.step_9()
+
+tests/test_singermodule.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <pages.singermodule_page.SingermodulePage object at 0x7fa90f95f290>
+
+    def step_9(self) -> None:
+        """点击热门歌手"""
+>       expect(self.element_8).to_be_visible()
+E       AssertionError: Locator expected to be visible
+E       Actual value: <element(s) not found> 
+E       Call log:
+E       LocatorAssertions.to_be_visible with timeout 5000ms
+E         - waiting for locator("div.item-txt").filter(has_text="热门歌手")
+
+pages/singermodule_page.py:70: AssertionError
